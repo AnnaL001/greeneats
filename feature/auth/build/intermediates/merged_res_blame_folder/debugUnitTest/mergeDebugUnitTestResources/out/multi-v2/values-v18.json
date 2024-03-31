@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.anna.greeneats.feature.auth.test.auth-mergeDebugUnitTestResources-52:/values-v18/values-v18.xml",
+            "map": [
+                {
+                    "source": "/home/anna/.gradle/caches/transforms-3/4e72f56f3c640a6b9bc4d432c461a4a9/transformed/appcompat-1.6.1/res/values-v18/values-v18.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                }
+            ]
+        }
+    ]
+}

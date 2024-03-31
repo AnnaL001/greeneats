@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.firebase:perf-plugin:1.4.2" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.google.firebase" artifactId="perf-plugin" version="1.4.2" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/perf-plugin/1.4.2/dda9a8fb9b5d177f07a7ac70e0906c829a7535af/perf-plugin-1.4.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

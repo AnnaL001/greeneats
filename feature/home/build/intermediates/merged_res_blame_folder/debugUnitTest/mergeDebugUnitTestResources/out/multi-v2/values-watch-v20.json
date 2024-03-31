@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.anna.greeneats.feature.home.test.home-mergeDebugUnitTestResources-52:/values-watch-v20/values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "/home/anna/.gradle/caches/transforms-3/4e72f56f3c640a6b9bc4d432c461a4a9/transformed/appcompat-1.6.1/res/values-watch-v20/values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        }
+    ]
+}

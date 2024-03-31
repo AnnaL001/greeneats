@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.anna.greeneats.core.ui-debug-54:/drawable-ldpi-v4/ic_call_answer.png",
+        "source": "com.anna.greeneats.core.ui-core-1.12.0-48:/drawable-ldpi-v4/ic_call_answer.png"
+    },
+    {
+        "merged": "com.anna.greeneats.core.ui-debug-54:/drawable-ldpi-v4/ic_call_answer_video_low.png",
+        "source": "com.anna.greeneats.core.ui-core-1.12.0-48:/drawable-ldpi-v4/ic_call_answer_video_low.png"
+    },
+    {
+        "merged": "com.anna.greeneats.core.ui-debug-54:/drawable-ldpi-v4/ic_call_answer_low.png",
+        "source": "com.anna.greeneats.core.ui-core-1.12.0-48:/drawable-ldpi-v4/ic_call_answer_low.png"
+    },
+    {
+        "merged": "com.anna.greeneats.core.ui-debug-54:/drawable-ldpi-v4/ic_call_decline_low.png",
+        "source": "com.anna.greeneats.core.ui-core-1.12.0-48:/drawable-ldpi-v4/ic_call_decline_low.png"
+    },
+    {
+        "merged": "com.anna.greeneats.core.ui-debug-54:/drawable-ldpi-v4/ic_call_answer_video.png",
+        "source": "com.anna.greeneats.core.ui-core-1.12.0-48:/drawable-ldpi-v4/ic_call_answer_video.png"
+    },
+    {
+        "merged": "com.anna.greeneats.core.ui-debug-54:/drawable-ldpi-v4/ic_call_decline.png",
+        "source": "com.anna.greeneats.core.ui-core-1.12.0-48:/drawable-ldpi-v4/ic_call_decline.png"
+    }
+]

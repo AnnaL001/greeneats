@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GreenEats.iml" filepath="$PROJECT_DIR$/.idea/modules/GreenEats.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GreenEats.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GreenEats.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mobile/GreenEats.app.mobile.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mobile/GreenEats.app.mobile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mobile/GreenEats.app.mobile.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mobile/GreenEats.app.mobile.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mobile/GreenEats.app.mobile.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mobile/GreenEats.app.mobile.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/mobile/GreenEats.app.mobile.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/mobile/GreenEats.app.mobile.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/GreenEats.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/GreenEats.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/navigation/GreenEats.core.navigation.iml" filepath="$PROJECT_DIR$/.idea/modules/core/navigation/GreenEats.core.navigation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/navigation/GreenEats.core.navigation.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core/navigation/GreenEats.core.navigation.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/navigation/GreenEats.core.navigation.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core/navigation/GreenEats.core.navigation.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/navigation/GreenEats.core.navigation.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core/navigation/GreenEats.core.navigation.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/ui/GreenEats.core.ui.iml" filepath="$PROJECT_DIR$/.idea/modules/core/ui/GreenEats.core.ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/ui/GreenEats.core.ui.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core/ui/GreenEats.core.ui.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/ui/GreenEats.core.ui.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core/ui/GreenEats.core.ui.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/ui/GreenEats.core.ui.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/core/ui/GreenEats.core.ui.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/GreenEats.feature.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/GreenEats.feature.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/auth/GreenEats.feature.auth.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/auth/GreenEats.feature.auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/auth/GreenEats.feature.auth.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/auth/GreenEats.feature.auth.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/auth/GreenEats.feature.auth.main.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/auth/GreenEats.feature.auth.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/auth/GreenEats.feature.auth.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/auth/GreenEats.feature.auth.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/cooked-recipes/GreenEats.feature.cooked-recipes.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/cooked-recipes/GreenEats.feature.cooked-recipes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/cooked-recipes/GreenEats.feature.cooked-recipes.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/cooked-recipes/GreenEats.feature.cooked-recipes.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/cooked-recipes/GreenEats.feature.cooked-recipes.main.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/cooked-recipes/GreenEats.feature.cooked-recipes.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/cooked-recipes/GreenEats.feature.cooked-recipes.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/cooked-recipes/GreenEats.feature.cooked-recipes.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/GreenEats.feature.home.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/GreenEats.feature.home.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/GreenEats.feature.home.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/GreenEats.feature.home.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/GreenEats.feature.home.main.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/GreenEats.feature.home.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/feature/home/GreenEats.feature.home.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/feature/home/GreenEats.feature.home.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/build-logic/build_logic.iml" filepath="$PROJECT_DIR$/.idea/modules/build-logic/build_logic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/build-logic/conventions/build_logic.conventions.iml" filepath="$PROJECT_DIR$/.idea/modules/build-logic/conventions/build_logic.conventions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/build-logic/conventions/build_logic.conventions.main.iml" filepath="$PROJECT_DIR$/.idea/modules/build-logic/conventions/build_logic.conventions.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/build-logic/conventions/build_logic.conventions.test.iml" filepath="$PROJECT_DIR$/.idea/modules/build-logic/conventions/build_logic.conventions.test.iml" />
+    </modules>
+  </component>
+</project>

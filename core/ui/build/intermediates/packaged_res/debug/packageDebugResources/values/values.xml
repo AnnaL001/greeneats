@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cuisine">
+        <item>All</item>
+        <item>American</item>
+        <item>French</item>
+        <item>Italian</item>
+    </string-array>
+    <string-array name="diet">
+        <item>High fiber</item>
+        <item>High protein</item>
+        <item>Balanced</item>
+        <item>Low fat</item>
+        <item>Low carb</item>
+        <item>Low sodium</item>
+    </string-array>
+    <string-array name="health_preference">
+        <item>Gluten free</item>
+        <item>Peanut free</item>
+        <item>Wheat free</item>
+        <item>Dairy free</item>
+    </string-array>
+    <color name="black">#FF000000</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="button_icon_size">22dp</dimen>
+    <dimen name="button_icon_spacing">28dp</dimen>
+    <dimen name="button_size">54dp</dimen>
+    <dimen name="card_elevation">8dp</dimen>
+    <dimen name="default_sheet_peek_height">512dp</dimen>
+    <dimen name="large_padding">32dp</dimen>
+    <dimen name="loading_img_size">80dp</dimen>
+    <dimen name="login_sheet_peek_height">480dp</dimen>
+    <dimen name="medium_large_padding">24dp</dimen>
+    <dimen name="medium_padding">16dp</dimen>
+    <dimen name="screen_large_padding">24dp</dimen>
+    <dimen name="screen_medium_padding">16dp</dimen>
+    <dimen name="screen_small_padding">8dp</dimen>
+    <dimen name="screen_xlarge_padding">32dp</dimen>
+    <dimen name="small_medium_padding">12dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
+    <dimen name="xsmall_padding">4dp</dimen>
+    <string name="app_name">Healthy Eats</string>
+    <string name="bookmark_icon">Bookmark icon</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_signup">Sign up</string>
+    <string name="btn_start">Get started</string>
+    <string name="confirm_password_match_error">Confirm password should match password</string>
+    <string name="confirm_password_placeholder">Confirm your password</string>
+    <string name="confirm_password_required_error">Confirm password is required</string>
+    <string name="email_icon">Email icon</string>
+    <string name="email_invalid_error">Email should be a valid email address</string>
+    <string name="email_lowercase_error">Email should be in lowercase</string>
+    <string name="email_placeholder">Your email address</string>
+    <string name="email_required_error">Email is required</string>
+    <string name="error_icon">Error icon</string>
+    <string name="hide_password">Hide password</string>
+    <string name="keto_diet">Keto</string>
+    <string name="login_error">😔️ Oops! An error occurred during login</string>
+    <string name="login_loading">Login in progress…</string>
+    <string name="login_redirect_link">Already have an account? Login here</string>
+    <string name="login_subtitle">Kindly enter your details below to login into your account</string>
+    <string name="login_title">Login to your account</string>
+    <string name="name_placeholder">Your name</string>
+    <string name="name_required_error">Name is required</string>
+    <string name="password_icon">Password icon</string>
+    <string name="password_no_digit_error">Password should contain digits</string>
+    <string name="password_no_lowercase_error">Password should contain lowercase characters</string>
+    <string name="password_no_special_chars_error">Password should contain special characters</string>
+    <string name="password_no_uppercase_error">Password should contain uppercase characters</string>
+    <string name="password_placeholder">Create your password</string>
+    <string name="password_required_error">Password is required</string>
+    <string name="password_short_error">Password should have a minimum of 8 characters</string>
+    <string name="search_icon">Search icon</string>
+    <string name="search_list_icon">Search list icon</string>
+    <string name="search_recipes_placeholder">Search recipes</string>
+    <string name="select_cuisine">Any cuisine preferences ?</string>
+    <string name="select_diet">Select your diet</string>
+    <string name="select_health_preference">What are your other preferences?</string>
+    <string name="show_password">Show password</string>
+    <string name="sign_up_error">😔️ Oops! An error occurred during signup</string>
+    <string name="sign_up_loading">Signing you up…</string>
+    <string name="sign_up_redirect_link">Don\'t have an account? Sign up here</string>
+    <string name="signup_subtitle">Create an account to continue</string>
+    <string name="signup_title">Getting started</string>
+    <string name="subtitle">Your healthy lifestyle partner where your healthy recipe needs are taken care of</string>
+    <string name="title">HealthyEats</string>
+    <string name="user_details_title">To begin, kindly provide the details below</string>
+    <string name="verification_error">Kindly verify your email before proceeding</string>
+    <style name="Theme.HealthyEats" parent="android:Theme.Material.Light.NoActionBar"/>
+</resources>
