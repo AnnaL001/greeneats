@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Screen dimensions -->
+    <dimen name="screen_small_padding">8dp</dimen>
+    <dimen name="screen_medium_padding">16dp</dimen>
+    <dimen name="screen_large_padding">24dp</dimen>
+    <dimen name="screen_xlarge_padding">32dp</dimen>
+
+    <!-- Button dimensions -->
+    <dimen name="button_icon_size">22dp</dimen>
+    <dimen name="button_icon_spacing">28dp</dimen>
+    <dimen name="button_size">54dp</dimen>
+
+    <!-- Bottom sheet dimensions -->
+    <dimen name="default_sheet_peek_height">512dp</dimen>
+    <dimen name="login_sheet_peek_height">480dp</dimen>
+
+    <!-- Spacing dimensions -->
+    <dimen name="xsmall_padding">4dp</dimen>
+    <dimen name="small_padding">8dp</dimen>
+    <dimen name="small_medium_padding">12dp</dimen>
+    <dimen name="medium_padding">16dp</dimen>
+    <dimen name="medium_large_padding">24dp</dimen>
+    <dimen name="large_padding">32dp</dimen>
+
+    <!-- Card elevation dimensions -->
+    <dimen name="card_elevation">8dp</dimen>
+
+    <!-- Image dimensions -->
+    <dimen name="loading_img_size">80dp</dimen>
+</resources>
