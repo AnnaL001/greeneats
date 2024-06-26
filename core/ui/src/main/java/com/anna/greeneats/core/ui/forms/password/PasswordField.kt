@@ -16,6 +16,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.platform.SoftwareKeyboardController
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -40,22 +41,21 @@ import com.anna.greeneats.core.ui.forms.common.greenEatsField
  */
 @Composable
 fun GreenEatsPasswordField(
-  inputState: MutableState<String>,
-  placeholder: String,
-  modifier: Modifier,
+  modifier: Modifier = Modifier,
+  onValueChange: (String) -> Unit = {},
+  passwordHidden: Boolean = true,
+  onPasswordVisibilityToggle: () -> Unit = {},
+  inputState: String = "",
+  placeholder: String = "",
   isError: Boolean = false,
   errorMessage: String = "",
+  keyboardController: SoftwareKeyboardController? = LocalSoftwareKeyboardController.current,
   onDone: (KeyboardActionScope.() -> Unit)?= null,
 ){
-  val keyboardController = LocalSoftwareKeyboardController.current
-  var passwordHidden by rememberSaveable { mutableStateOf(true) }
-
   Column {
     OutlinedTextField(
-      value = inputState.value,
-      onValueChange = { newValue ->
-        inputState.value = newValue
-      },
+      value = inputState,
+      onValueChange = onValueChange,
       modifier = Modifier.greenEatsField(isError, errorMessage, modifier),
       singleLine = true,
       textStyle = MaterialTheme.typography.bodyMedium,
@@ -64,7 +64,7 @@ fun GreenEatsPasswordField(
       leadingIcon = { PasswordLeadingIcon() },
       trailingIcon = {
         if (!isError) {
-          IconButton(onClick = { passwordHidden = !passwordHidden }) {
+          IconButton(onClick = { onPasswordVisibilityToggle() }) {
             PasswordTrailingIcon(passwordHidden = passwordHidden)
           }
         } else {

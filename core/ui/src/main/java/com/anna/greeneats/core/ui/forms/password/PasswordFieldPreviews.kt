@@ -20,12 +20,10 @@ import com.anna.greeneats.core.ui.theme.GreenEatsTheme
 @Composable
 @Preview(showBackground = true, showSystemUi = true, group = "filled")
 fun HealthyEatsFilledPasswordFieldPreview() {
-  val input = remember { mutableStateOf("12345678") }
-
   GreenEatsTheme {
     Column {
       GreenEatsPasswordField(
-          inputState = input,
+          inputState = "12345678",
           placeholder = stringResource(id = R.string.password_placeholder),
           modifier = Modifier.padding(dimensionResource(id = R.dimen.screen_medium_padding)))
     }
@@ -35,11 +33,9 @@ fun HealthyEatsFilledPasswordFieldPreview() {
 @Composable
 @Preview(showBackground = true, showSystemUi = true, group = "empty")
 fun HealthyEatsEmptyPasswordFieldPreview() {
-  val input = remember { mutableStateOf("") }
-
   GreenEatsTheme {
     GreenEatsPasswordField(
-        inputState = input,
+        inputState = "",
         placeholder = stringResource(id = R.string.password_placeholder),
         modifier = Modifier.padding(dimensionResource(id = R.dimen.screen_medium_padding)),
         isError = true,
