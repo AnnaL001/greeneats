@@ -1,8 +1,7 @@
 import com.anna.greeneats.constants.AndroidModules
 
 plugins {
-  alias(libs.plugins.greeneats.convention.library)
-  alias(libs.plugins.greeneats.convention.compose.library)
+  alias(libs.plugins.greeneats.convention.feature)
 }
 
 android {
@@ -11,4 +10,5 @@ android {
 
 dependencies {
   implementation(project(AndroidModules.Core.UI))
+  implementation(project(AndroidModules.Core.UTIL))
 }
