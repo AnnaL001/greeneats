@@ -20,12 +20,10 @@ import com.anna.greeneats.core.ui.theme.GreenEatsTheme
 @Composable
 @Preview(showBackground = true, showSystemUi = true, group = "filled")
 fun GreenEatsFilledEmailFieldPreview() {
-  val input = remember { mutableStateOf("") }
-
   GreenEatsTheme {
     Column {
       GreenEatsEmailField(
-          inputState = input,
+          inputState = "anna@gmail.com",
           placeholder = stringResource(id = R.string.email_placeholder),
           modifier = Modifier.padding(dimensionResource(id = R.dimen.screen_medium_padding)))
     }
@@ -35,13 +33,11 @@ fun GreenEatsFilledEmailFieldPreview() {
 @Composable
 @Preview(showBackground = true, showSystemUi = true, group = "empty")
 fun GreenEatsEmptyEmailFieldPreview() {
-  val input = remember { mutableStateOf("") }
-
   GreenEatsTheme {
     val errorMessage = stringResource(id = R.string.email_required_error)
 
     GreenEatsEmailField(
-        inputState = input,
+        inputState = "",
         placeholder = stringResource(id = R.string.email_placeholder),
         modifier = Modifier.padding(dimensionResource(id = R.dimen.screen_medium_padding)),
         isError = true,

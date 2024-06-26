@@ -8,9 +8,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.platform.SoftwareKeyboardController
 import androidx.compose.ui.res.dimensionResource
 import com.anna.greeneats.core.ui.R
 import com.anna.greeneats.core.ui.forms.common.ErrorTrailingIcon
@@ -31,21 +31,20 @@ import com.anna.greeneats.core.ui.forms.common.greenEatsField
  */
 @Composable
 fun GreenEatsTextField(
-  inputState: MutableState<String>,
-  placeholder: String,
-  modifier: Modifier,
+  modifier: Modifier = Modifier,
+  onValueChange: (String) -> Unit = {},
+  inputState: String = "",
+  placeholder: String = "",
   isError: Boolean = false,
   errorMessage: String = "",
+  keyboardController: SoftwareKeyboardController? = LocalSoftwareKeyboardController.current,
   onDone: (KeyboardActionScope.() -> Unit) ?= null,
 ){
-  val keyboardController = LocalSoftwareKeyboardController.current
 
   Column {
     OutlinedTextField(
-      value = inputState.value,
-      onValueChange = { newValue ->
-        inputState.value = newValue
-      },
+      value = inputState,
+      onValueChange = onValueChange,
       modifier = Modifier.greenEatsField(isError, errorMessage, modifier),
       singleLine = true,
       textStyle = MaterialTheme.typography.bodyMedium,

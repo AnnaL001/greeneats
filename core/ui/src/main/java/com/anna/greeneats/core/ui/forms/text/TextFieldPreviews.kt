@@ -18,12 +18,10 @@ import com.anna.greeneats.core.ui.theme.GreenEatsTheme
 @Composable
 @Preview(showBackground = true, showSystemUi = true, group = "filled")
 fun GreenEatsFilledTextFieldPreview(){
-  val input = remember { mutableStateOf("Anna") }
-
   GreenEatsTheme {
     Column {
       GreenEatsTextField(
-        inputState = input,
+        inputState = "Anna",
         placeholder = stringResource(id = R.string.name_placeholder),
         modifier = Modifier.padding(dimensionResource(id = R.dimen.screen_medium_padding))
       )
@@ -34,11 +32,9 @@ fun GreenEatsFilledTextFieldPreview(){
 @Composable
 @Preview(showBackground = true, showSystemUi = true, group = "empty")
 fun GreenEatsEmptyTextFieldPreview(){
-  val input = remember { mutableStateOf("") }
-
   GreenEatsTheme {
     GreenEatsTextField(
-      inputState = input,
+      inputState = "",
       placeholder = stringResource(id = R.string.name_placeholder),
       modifier = Modifier.padding(dimensionResource(id = R.dimen.screen_medium_padding)),
       isError = true,
