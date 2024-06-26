@@ -32,3 +32,4 @@ include(":feature:home")
 include(":feature:auth")
 
 include(":feature:cooked-recipes")
+include(":core:util")
