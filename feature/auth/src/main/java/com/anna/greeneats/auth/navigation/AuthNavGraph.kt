@@ -4,11 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
 import com.anna.greeneats.auth.LandingScreenInt
 import com.anna.greeneats.auth.login.ui.LoginScreenInt
-import com.anna.greeneats.auth.signup.SignUpScreenInt
+import com.anna.greeneats.auth.signup.ui.SignUpScreenInt
 
 /**
  * Feature flows and destinations navigated to within/from auth module
