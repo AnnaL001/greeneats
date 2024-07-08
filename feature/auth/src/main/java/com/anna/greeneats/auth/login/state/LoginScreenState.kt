@@ -1,5 +1,8 @@
 package com.anna.greeneats.auth.login.state
 
+import com.anna.greeneats.auth.common.EmailErrorState
+import com.anna.greeneats.auth.common.PasswordErrorState
+
 data class LoginScreenState (
   val email: String = "",
   val password: String = "",

@@ -3,15 +3,13 @@ package com.anna.greeneats.auth.login.state
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import com.anna.greeneats.auth.common.emailValidationMsg
+import com.anna.greeneats.auth.common.EmailErrorState
+import com.anna.greeneats.auth.common.PasswordErrorState
 import com.anna.greeneats.core.util.validation.error.Email
 import com.anna.greeneats.core.util.validation.error.Password
 import com.anna.greeneats.core.util.validation.main.EmailValidations
 import com.anna.greeneats.core.util.validation.main.PasswordValidations
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
