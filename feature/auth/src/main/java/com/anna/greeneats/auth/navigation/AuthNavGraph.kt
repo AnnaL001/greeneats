@@ -5,7 +5,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.anna.greeneats.auth.LandingScreenInt
+import com.anna.greeneats.auth.landing.ui.LandingScreenInt
 import com.anna.greeneats.auth.login.ui.LoginScreenInt
 import com.anna.greeneats.auth.signup.ui.SignUpScreenInt
 
@@ -16,8 +16,8 @@ fun NavGraphBuilder.addAuthNestedGraph(navController: NavController) {
   navigation(startDestination = AuthRoutes.LANDING, route = AuthRoutes.ID) {
     composable(AuthRoutes.LANDING) {
       LandingScreen(
-          onNavigateToSignup = { navController.navigate(AuthRoutes.SIGN_UP) },
-          onNavigateToLogin = { navController.navigate(AuthRoutes.LOGIN) })
+        onNavigateToHome = { navController.navigate(AuthRoutes.HOME) },
+        onNavigateToLogin = { navController.navigate(AuthRoutes.LOGIN) })
     }
 
     composable(AuthRoutes.LOGIN) {
@@ -44,8 +44,8 @@ fun NavGraphBuilder.SignUpScreen(onNavigateToLogin: () -> Unit = {}) {
 
 @Composable
 fun NavGraphBuilder.LandingScreen(
-    onNavigateToSignup: () -> Unit = {},
+    onNavigateToHome: () -> Unit = {},
     onNavigateToLogin: () -> Unit = {}
 ) {
-  LandingScreenInt(onNavigateToSignup = onNavigateToSignup, onNavigateToLogin = onNavigateToLogin)
+  LandingScreenInt(onNavigateToHome = onNavigateToHome, onNavigateToLogin = onNavigateToLogin)
 }
