@@ -25,6 +25,7 @@ class AndroidFeatureConventionPlugin: Plugin<Project>{
 
       dependencies {
         implementation(libs.findLibrary("kotlinx.coroutines").get())
+        implementation(libs.findLibrary("androidx.hilt.navigation").get())
       }
     }
   }
