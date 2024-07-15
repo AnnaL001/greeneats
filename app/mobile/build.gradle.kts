@@ -1,6 +1,7 @@
 import com.anna.greeneats.constants.AndroidModules
 
 plugins {
+  alias(libs.plugins.gms)
   alias(libs.plugins.greeneats.convention.application)
   alias(libs.plugins.greeneats.convention.compose.application)
 }
