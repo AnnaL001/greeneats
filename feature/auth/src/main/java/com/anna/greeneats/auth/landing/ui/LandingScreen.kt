@@ -19,6 +19,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.anna.greeneats.auth.landing.state.LandingScreenState
 import com.anna.greeneats.core.ui.R
+import kotlinx.coroutines.delay
 
 @Composable
 fun LandingScreen(
@@ -26,6 +27,8 @@ fun LandingScreen(
     onLoginNavigation: () -> Unit = {},
     onHomeNavigation: () -> Unit = {}
 ) {
+  val delayMs: Long = 3000
+
   Column(
       modifier = Modifier.background(MaterialTheme.colorScheme.primary.copy(alpha = 0.05F)),
       horizontalAlignment = Alignment.CenterHorizontally,
@@ -43,12 +46,14 @@ fun LandingScreen(
 
     LaunchedEffect(landingScreenState.navigateToHome) {
       if(landingScreenState.navigateToHome){
+        delay(delayMs)
         onHomeNavigation()
       }
     }
 
     LaunchedEffect(landingScreenState.navigateToLogin) {
       if(landingScreenState.navigateToLogin){
+        delay(delayMs)
         onLoginNavigation()
       }
     }
