@@ -33,3 +33,5 @@ include(":feature:auth")
 
 include(":feature:cooked-recipes")
 include(":core:util")
+include(":data:auth")
+include(":core:model")

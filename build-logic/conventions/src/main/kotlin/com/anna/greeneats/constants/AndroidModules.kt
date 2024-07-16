@@ -23,14 +23,16 @@ object AndroidModules {
     const val UTIL = ":core:util"
     // Navigation
     const val NAVIGATION = ":core:navigation"
+    // Models
+    const val MODEL = ":core:model"
   }
 
   object Data{
-    const val DATA_RECIPES = ":data:home"
-    const val DATA_SAVED_RECIPES = ":data:saved-recipes"
-    const val DATA_COOKED_RECIPES = ":data:cooked-recipes"
-    const val DATA_AUTH = ":data:auth"
-    const val DATA_APP_SETTINGS = ":data:app-settings"
+    const val RECIPES = ":data:home"
+    const val SAVED_RECIPES = ":data:saved-recipes"
+    const val COOKED_RECIPES = ":data:cooked-recipes"
+    const val AUTH = ":data:auth"
+    const val APP_SETTINGS = ":data:app-settings"
   }
 
   object Test{

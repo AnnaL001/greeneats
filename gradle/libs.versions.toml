@@ -68,6 +68,7 @@ kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics-ktx" }
 firebase-performance = { group = "com.google.firebase", name = "firebase-perf-ktx" }
+firebase-auth = {group="com.google.firebase", name="firebase-auth-ktx"}
 
 # Others
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }

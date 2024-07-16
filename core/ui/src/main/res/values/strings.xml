@@ -49,6 +49,7 @@
     <string name="signup_title">Getting started</string>
     <string name="signup_subtitle">Create an account to continue</string>
     <string name="login_redirect_link">Already have an account? Login here</string>
+    <string name="email_verification_sent">Kindly check your email. A verification email has been sent.</string>
 
     <!-- Start screen -->
     <string name="title">HealthyEats</string>
