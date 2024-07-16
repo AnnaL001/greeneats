@@ -1,22 +1,33 @@
 package com.anna.greeneats.auth.signup.state
 
+import android.widget.Toast
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.anna.greeneats.auth.common.ConfirmPasswordErrorState
 import com.anna.greeneats.auth.common.EmailErrorState
 import com.anna.greeneats.auth.common.PasswordErrorState
 import com.anna.greeneats.auth.login.state.LoginScreenEvents
 import com.anna.greeneats.auth.login.state.LoginScreenState
+import com.anna.greeneats.core.model.resource.AsyncResource
+import com.anna.greeneats.core.model.resource.Resource
 import com.anna.greeneats.core.util.validation.error.ConfirmPassword
 import com.anna.greeneats.core.util.validation.error.Email
 import com.anna.greeneats.core.util.validation.error.Password
 import com.anna.greeneats.core.util.validation.main.ConfirmPasswordValidations
 import com.anna.greeneats.core.util.validation.main.EmailValidations
 import com.anna.greeneats.core.util.validation.main.PasswordValidations
+import com.anna.greeneats.data.auth.AuthRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class SignupScreenViewModel @Inject constructor() : ViewModel() {
+@HiltViewModel
+class SignupScreenViewModel @Inject constructor(
+  private val authRepository: AuthRepository
+) : ViewModel() {
   private val _signupState = mutableStateOf(SignupScreenState())
   val signupState
     get() = _signupState as State<SignupScreenState>
@@ -24,7 +35,7 @@ class SignupScreenViewModel @Inject constructor() : ViewModel() {
   fun onEvents(events: SignupScreenEvents){
     when(events){
       is SignupScreenEvents.OnSignup -> {
-
+        performSignUp()
       }
 
       is SignupScreenEvents.OnSignupValidation -> {
@@ -53,7 +64,37 @@ class SignupScreenViewModel @Inject constructor() : ViewModel() {
       is SignupScreenEvents.OnConfirmPasswordChange -> {
         _signupState.value = _signupState.value.copy(confirmPassword = events.confirmPassword)
       }
+
     }
+  }
+
+  /**
+   * Perform sign up
+   */
+  private fun performSignUp(){
+    _signupState.value = _signupState.value.copy(signupInProgress = true)
+
+    viewModelScope.launch {
+      val response = authRepository.signupWithEmail(_signupState.value.email, _signupState.value.password)
+      when(response){
+        is Resource.Success -> {
+          stopLoader()
+          _signupState.value = _signupState.value.copy(navigateToLogin = true)
+        }
+
+        is Resource.Failure -> {
+          stopLoader()
+          _signupState.value = _signupState.value.copy(signUpError = response.exception.message.toString())
+        }
+      }
+    }
+  }
+
+  /**
+   * Initiate loader
+   */
+  private fun stopLoader(){
+    _signupState.value = _signupState.value.copy(signupInProgress = false);
   }
 
   /** Perform email validation */

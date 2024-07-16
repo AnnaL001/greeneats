@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.anna.greeneats.auth.login.state.LoginScreenEvents
 import com.anna.greeneats.auth.login.ui.LoginScreenUI
@@ -24,9 +25,9 @@ import com.anna.greeneats.core.ui.layout.card.GreenEatsCard
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun SignUpScreenInt(
-  onNavigateToLogin: () -> Unit = {},
-  signupViewModel: SignupScreenViewModel = viewModel()) {
+  onNavigateToLogin: () -> Unit = {}) {
   Column(modifier = Modifier.fillMaxSize().background(color = MaterialTheme.colorScheme.surface)) {
+    val signupViewModel = hiltViewModel<SignupScreenViewModel>()
     val signUpState = signupViewModel.signupState.value
 
     SignupScreenUI(

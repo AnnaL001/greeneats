@@ -13,5 +13,7 @@ data class SignupScreenState(
   val emailErrorState: EmailErrorState = EmailErrorState(),
   val passwordErrorState: PasswordErrorState = PasswordErrorState(),
   val confirmPasswordErrorState: ConfirmPasswordErrorState = ConfirmPasswordErrorState(),
-  val navigateToLogin: Boolean = false
+  val navigateToLogin: Boolean = false,
+  val signupInProgress: Boolean = false,
+  val signUpError: String = ""
 )

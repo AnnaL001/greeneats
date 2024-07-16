@@ -1,5 +1,7 @@
 package com.anna.greeneats.auth.signup.ui
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -15,6 +17,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -31,6 +34,7 @@ import com.anna.greeneats.core.ui.R
 import com.anna.greeneats.core.ui.forms.button.GreenEatsButton
 import com.anna.greeneats.core.ui.forms.email.GreenEatsEmailField
 import com.anna.greeneats.core.ui.forms.password.GreenEatsPasswordField
+import com.anna.greeneats.core.ui.loading.LoadingContent
 import com.anna.greeneats.core.ui.normalStyling
 import com.anna.greeneats.core.util.validation.error.ConfirmPassword
 import com.anna.greeneats.core.util.validation.error.Email
@@ -80,8 +84,12 @@ private fun SignupForm(
   onSignupValidation: () -> Unit = {},
   onPasswordVisibilityToggle: () -> Unit = {},
   onConfirmPasswordVisibilityToggle: () -> Unit = {},
-  onSignup: () -> Unit = {}
+  onSignup: () -> Unit = {},
+  context: Context = LocalContext.current
 ){
+  var launchLoader = false
+  var signUpError = ""
+
   Column(
     modifier = Modifier.padding(
       top = dimensionResource(R.dimen.small_padding),
@@ -156,8 +164,35 @@ private fun SignupForm(
 
     LaunchedEffect(signUpState.navigateToLogin){
       if(signUpState.navigateToLogin){
+        Toast.makeText(context, R.string.email_verification_sent, Toast.LENGTH_SHORT).show()
         onLoginNavigation()
       }
+    }
+
+    LaunchedEffect(signUpState.signupInProgress){
+      if(signUpState.signupInProgress){
+        launchLoader = true
+      }
+    }
+
+    LaunchedEffect(signUpState.signUpError){
+      if(signUpState.signUpError.isNotBlank()){
+        signUpError = signUpState.signUpError
+      }
+    }
+
+    if(signUpError.isNotBlank()){
+      LoadingContent(
+        text = signUpError,
+        isSuccess = false
+      )
+    }
+
+    if(launchLoader){
+      LoadingContent(
+        text = stringResource(id = R.string.sign_up_loading),
+        isSuccess = true
+      )
     }
 
     GreenEatsButton(
