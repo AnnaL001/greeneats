@@ -3,17 +3,23 @@ package com.anna.greeneats.auth.login.state
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.anna.greeneats.auth.common.EmailErrorState
 import com.anna.greeneats.auth.common.PasswordErrorState
+import com.anna.greeneats.core.model.resource.Resource
 import com.anna.greeneats.core.util.validation.error.Email
 import com.anna.greeneats.core.util.validation.error.Password
 import com.anna.greeneats.core.util.validation.main.EmailValidations
 import com.anna.greeneats.core.util.validation.main.PasswordValidations
+import com.anna.greeneats.data.auth.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginScreenViewModel @Inject constructor() : ViewModel() {
+class LoginScreenViewModel @Inject constructor(
+  private val authRepository: AuthRepository
+) : ViewModel() {
   private val _loginState = mutableStateOf(LoginScreenState())
   val loginState
     get() = _loginState as State<LoginScreenState>
@@ -21,7 +27,7 @@ class LoginScreenViewModel @Inject constructor() : ViewModel() {
   fun onEvents(events: LoginScreenEvents){
     when(events){
       is LoginScreenEvents.OnLogin -> {
-
+        performLogin()
       }
 
       is LoginScreenEvents.OnLoginValidation -> {
@@ -42,6 +48,57 @@ class LoginScreenViewModel @Inject constructor() : ViewModel() {
         _loginState.value = _loginState.value.copy(password = events.password)
       }
     }
+  }
+
+  /**
+   * Trigger verification error
+   */
+  private fun triggerVerificationError() {
+    _loginState.value = _loginState.value.copy(isNotVerified = true)
+  }
+
+  /**
+   * Trigger home navigation
+   */
+  private fun triggerHomeNavigation(){
+    _loginState.value = _loginState.value.copy(navigateToHome = true)
+  }
+
+  /**
+   * Perform login
+   */
+  private fun performLogin(){
+    _loginState.value = _loginState.value.copy(loginInProgress = true)
+
+    viewModelScope.launch {
+      val response = authRepository.loginWithEmail(_loginState.value.email, _loginState.value.password)
+
+      when(response){
+        is Resource.Success -> {
+          stopLoader()
+
+          if(authRepository.isVerified == true){
+            triggerHomeNavigation()
+            return@launch
+          }
+
+          authRepository.logout()
+          triggerVerificationError()
+        }
+
+        is Resource.Failure -> {
+          stopLoader()
+          _loginState.value = _loginState.value.copy(loginError = response.exception.message.toString())
+        }
+      }
+    }
+  }
+
+  /**
+   * Initiate loader
+   */
+  private fun stopLoader(){
+    _loginState.value = _loginState.value.copy(loginInProgress = false);
   }
 
 

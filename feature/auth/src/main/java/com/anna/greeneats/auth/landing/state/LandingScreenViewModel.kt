@@ -21,7 +21,16 @@ class LandingScreenViewModel @Inject constructor(
 
   private fun initNavigation(){
     val isLoggedIn = authRepository.isLoggedIn
-    if(isLoggedIn) handleNavigation(LandingScreenNavigation.NAVIGATE_TO_HOME) else handleNavigation(LandingScreenNavigation.NAVIGATE_TO_LOGIN)
+    val isVerified = authRepository.isVerified
+
+    if (isLoggedIn && isVerified == true) {
+      handleNavigation(LandingScreenNavigation.NAVIGATE_TO_HOME)
+      return
+    }
+
+    // Disable automatic Firebase login upon signup until user is verified
+    authRepository.logout()
+    handleNavigation(LandingScreenNavigation.NAVIGATE_TO_LOGIN)
   }
 
   private fun handleNavigation(navigation: LandingScreenNavigation){

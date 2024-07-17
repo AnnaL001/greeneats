@@ -9,5 +9,8 @@ data class LoginScreenState (
   val passwordHidden: Boolean = true,
   val emailErrorState: EmailErrorState = EmailErrorState(),
   val passwordErrorState: PasswordErrorState = PasswordErrorState(),
-  val navigateToHome: Boolean = false
+  val navigateToHome: Boolean = false,
+  val loginInProgress: Boolean = false,
+  val loginError: String = "",
+  val isNotVerified: Boolean = false
 )
