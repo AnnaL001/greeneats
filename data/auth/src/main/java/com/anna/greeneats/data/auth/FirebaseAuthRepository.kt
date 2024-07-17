@@ -28,6 +28,13 @@ class FirebaseAuthRepository @Inject constructor(
     get() = auth.currentUser != null
 
   /**
+   * Check if the user has been verified
+   * @return If the user has been verified
+   */
+  override val isVerified: Boolean?
+    get() = auth.currentUser?.isEmailVerified
+
+  /**
    * Update user profile on Firebase
    * @param name Name of the user
    * @return Whether user profile update has been successful
