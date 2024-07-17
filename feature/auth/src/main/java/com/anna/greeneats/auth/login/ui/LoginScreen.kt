@@ -1,5 +1,7 @@
 package com.anna.greeneats.auth.login.ui
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -15,6 +17,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -29,6 +32,7 @@ import com.anna.greeneats.core.ui.forms.button.GreenEatsButton
 import com.anna.greeneats.core.ui.forms.email.GreenEatsEmailField
 import com.anna.greeneats.core.ui.forms.password.GreenEatsPasswordField
 import com.anna.greeneats.core.ui.layout.bottom_sheet.GreenEatsBottomSheet
+import com.anna.greeneats.core.ui.loading.LoadingContent
 import com.anna.greeneats.core.ui.normalStyling
 import com.anna.greeneats.core.util.validation.error.Email
 import com.anna.greeneats.core.util.validation.error.Password
@@ -80,7 +84,8 @@ private fun LoginForm(
   onLoginValidation: () -> Unit = {},
   onPasswordVisibilityToggle: () -> Unit = {},
   onNavigateToHome: () -> Unit = {},
-  onLogin: () -> Unit = {}
+  onLogin: () -> Unit = {},
+  context: Context = LocalContext.current
 ){
   Column(
     modifier = Modifier.padding(
@@ -88,6 +93,9 @@ private fun LoginForm(
       bottom = dimensionResource(R.dimen.medium_padding),
     ),
     horizontalAlignment = Alignment.CenterHorizontally) {
+
+    var launchLoader = false
+    var loginError = ""
 
     Text(
       text = stringResource(R.string.login_title),
@@ -152,6 +160,38 @@ private fun LoginForm(
       if(loginState.navigateToHome){
         onNavigateToHome()
       }
+    }
+
+    LaunchedEffect(loginState.isNotVerified){
+      if(loginState.isNotVerified){
+        Toast.makeText(context, R.string.verification_error, Toast.LENGTH_SHORT).show()
+      }
+    }
+
+    LaunchedEffect(loginState.loginInProgress){
+      if(loginState.loginInProgress){
+        launchLoader = true
+      }
+    }
+
+    LaunchedEffect(loginState.loginError){
+      if(loginState.loginError.isNotBlank()){
+        loginError = loginState.loginError
+      }
+    }
+
+    if(loginError.isNotBlank()){
+      LoadingContent(
+        text = loginError,
+        isSuccess = false
+      )
+    }
+
+    if(launchLoader){
+      LoadingContent(
+        text = stringResource(id = R.string.login_loading),
+        isSuccess = true
+      )
     }
 
     Text(
