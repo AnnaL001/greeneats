@@ -5,6 +5,8 @@ import android.content.Context
 sealed class LoginScreenEvents {
   data object OnLogin : LoginScreenEvents()
 
+  data class OnGoogleLogin(val context: Context): LoginScreenEvents()
+
   data object OnLoginValidation: LoginScreenEvents()
 
   data object OnPasswordVisibilityToggle: LoginScreenEvents()

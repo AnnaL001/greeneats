@@ -3,19 +3,25 @@ package com.anna.greeneats.auth.login.ui
 import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material3.BottomSheetScaffoldState
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
@@ -28,10 +34,14 @@ import com.anna.greeneats.auth.common.boldGreenStyling
 import com.anna.greeneats.auth.common.emailValidationMsg
 import com.anna.greeneats.auth.common.passwordValidationMsg
 import com.anna.greeneats.core.ui.R
+import com.anna.greeneats.core.ui.forms.button.CustomButtonColor
+import com.anna.greeneats.core.ui.forms.button.CustomIcon
 import com.anna.greeneats.core.ui.forms.button.GreenEatsButton
+import com.anna.greeneats.core.ui.forms.button.GreenEatsButtonWithIcon
 import com.anna.greeneats.core.ui.forms.email.GreenEatsEmailField
 import com.anna.greeneats.core.ui.forms.password.GreenEatsPasswordField
 import com.anna.greeneats.core.ui.layout.bottom_sheet.GreenEatsBottomSheet
+import com.anna.greeneats.core.ui.layout.divider.GreenEatsDivider
 import com.anna.greeneats.core.ui.loading.LoadingContent
 import com.anna.greeneats.core.ui.normalStyling
 import com.anna.greeneats.core.util.validation.error.Email
@@ -52,12 +62,13 @@ fun LoginScreenUI(
   onPasswordChange: (String) -> Unit = {},
   scaffoldState: BottomSheetScaffoldState = rememberBottomSheetScaffoldState(),
   onNavigateToHome: () -> Unit = {},
-  onLogin: () -> Unit = {}
+  onLogin: () -> Unit = {},
+  onGoogleLogin: () -> Unit = {}
 ) {
 
   GreenEatsBottomSheet(
     scaffoldState = scaffoldState,
-    sheetContent = { LoginForm(loginState, onSignUpNavigation, onEmailChange, onPasswordChange, onLoginValidation, onPasswordVisibilityToggle, onNavigateToHome, onLogin) },
+    sheetContent = { LoginForm(loginState, onSignUpNavigation, onEmailChange, onPasswordChange, onLoginValidation, onPasswordVisibilityToggle, onNavigateToHome, onLogin, onGoogleLogin) },
     sheetPeekHeight = dimensionResource(R.dimen.login_sheet_peek_height)
   ) {
     Column {
@@ -85,6 +96,7 @@ private fun LoginForm(
   onPasswordVisibilityToggle: () -> Unit = {},
   onNavigateToHome: () -> Unit = {},
   onLogin: () -> Unit = {},
+  onGoogleLogin: () -> Unit = {},
   context: Context = LocalContext.current
 ){
   Column(
@@ -145,10 +157,38 @@ private fun LoginForm(
       },
       modifier = Modifier.padding(
         top = dimensionResource(R.dimen.medium_padding),
-        start = dimensionResource(R.dimen.small_medium_padding),
-        end = dimensionResource(R.dimen.small_medium_padding)
+        start = dimensionResource(R.dimen.small_padding),
+        end = dimensionResource(R.dimen.small_padding)
       )
     )
+
+    GreenEatsDivider(
+      modifier = Modifier.padding(
+        top = dimensionResource(id = R.dimen.medium_large_padding),
+        bottom = dimensionResource(id = R.dimen.small_padding),
+        start = dimensionResource(id = R.dimen.screen_medium_padding),
+        end = dimensionResource(id = R.dimen.screen_medium_padding)
+      ),
+      text = stringResource(id = R.string.or).uppercase()
+    )
+
+    GreenEatsButtonWithIcon(
+      icon = CustomIcon(
+        image = R.drawable.google_logo,
+        size = dimensionResource(id = R.dimen.button_icon_size)
+      ) ,
+      buttonText = stringResource(id = R.string.btn_google_login),
+      onClick = {
+        onGoogleLogin()
+      },
+      customButtonColor = CustomButtonColor(
+        bgColor = MaterialTheme.colorScheme.surfaceVariant
+      ),
+      modifier = Modifier.padding(
+        top = dimensionResource(R.dimen.medium_padding),
+        start = dimensionResource(R.dimen.medium_padding),
+        end = dimensionResource(R.dimen.medium_padding)
+      ))
 
     LaunchedEffect(loginState.emailErrorState.emailValidation == Email.VALID_EMAIL && loginState.passwordErrorState.passwordValidation == Password.VALID_PASSWORD){
       if(loginState.emailErrorState.emailValidation == Email.VALID_EMAIL && loginState.passwordErrorState.passwordValidation == Password.VALID_PASSWORD){
@@ -199,7 +239,7 @@ private fun LoginForm(
       textAlign = TextAlign.Center,
       textDecoration = TextDecoration.Underline,
       modifier = Modifier
-        .padding(top = dimensionResource(R.dimen.small_padding))
+        .padding(top = dimensionResource(R.dimen.medium_large_padding))
         .clickable { onSignUpNavigation() },
       style = normalStyling()
     )
