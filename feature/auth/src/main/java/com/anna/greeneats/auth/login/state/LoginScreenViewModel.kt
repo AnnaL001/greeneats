@@ -1,5 +1,6 @@
 package com.anna.greeneats.auth.login.state
 
+import android.content.Context
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -13,6 +14,7 @@ import com.anna.greeneats.core.util.validation.main.EmailValidations
 import com.anna.greeneats.core.util.validation.main.PasswordValidations
 import com.anna.greeneats.data.auth.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ActivityContext
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -46,6 +48,10 @@ class LoginScreenViewModel @Inject constructor(
 
       is LoginScreenEvents.OnPasswordChange -> {
         _loginState.value = _loginState.value.copy(password = events.password)
+      }
+
+      is LoginScreenEvents.OnGoogleLogin -> {
+        performGoogleLogin(events.context)
       }
     }
   }
@@ -84,6 +90,25 @@ class LoginScreenViewModel @Inject constructor(
 
           authRepository.logout()
           triggerVerificationError()
+        }
+
+        is Resource.Failure -> {
+          stopLoader()
+          _loginState.value = _loginState.value.copy(loginError = response.exception.message.toString())
+        }
+      }
+    }
+  }
+
+  /**
+   * Perform google login
+   */
+  fun performGoogleLogin(context: Context){
+    viewModelScope.launch {
+      when(val response = authRepository.loginWithGoogle(context)){
+        is Resource.Success -> {
+          stopLoader()
+          triggerHomeNavigation()
         }
 
         is Resource.Failure -> {

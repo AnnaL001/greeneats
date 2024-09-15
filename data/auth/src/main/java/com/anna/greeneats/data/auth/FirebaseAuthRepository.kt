@@ -1,16 +1,21 @@
 package com.anna.greeneats.data.auth
 
+import android.content.Context
 import android.net.Uri
 import com.anna.greeneats.core.model.resource.Resource
+import com.anna.greeneats.data.auth.google.GoogleSignInContract
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.UserProfileChangeRequest
+import dagger.hilt.android.qualifiers.ActivityContext
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
 import javax.inject.Inject
 
 class FirebaseAuthRepository @Inject constructor(
-  private val auth: FirebaseAuth
+  private val auth: FirebaseAuth,
+  private val googleSignInContract: GoogleSignInContract
 )  : AuthRepository {
 
   /**
@@ -85,6 +90,31 @@ class FirebaseAuthRepository @Inject constructor(
       Resource.Success(loginResult.user!!)
     } catch (e: Exception){
       Timber.d("\uD83D\uDE14️FAILURE: Email login unsuccessful {Email: $email, Error: ${e.message}}")
+      e.printStackTrace()
+      Resource.Failure(e)
+    }
+  }
+
+  /** Login with Google Account */
+  override suspend fun loginWithGoogle(context: Context): Resource<FirebaseUser> {
+    return when(val response = googleSignInContract.getGoogleIdToken(context)){
+      is Resource.Success -> handleGoogleLogin(response.result)
+      is Resource.Failure -> {
+        Timber.d("\uD83D\uDE14️FAILURE: Can't proceed with google login due to error getting Google Token: ${response.exception.message}")
+        response.exception.printStackTrace()
+        Resource.Failure(response.exception)
+      }
+    }
+  }
+
+  private suspend fun handleGoogleLogin(googleToken: String): Resource<FirebaseUser>{
+    return try {
+      val firebaseCredential = GoogleAuthProvider.getCredential(googleToken, null)
+      val signInResult = auth.signInWithCredential(firebaseCredential).await()
+      Timber.d("\uD83D\uDE03️SUCCESS: Google sign in successful {Email: ${signInResult.user?.email}}")
+      Resource.Success(signInResult.user!!)
+    } catch (e: Exception){
+      Timber.d("\uD83D\uDE14️FAILURE: Google sign in unsuccessful {Error: ${e.message}}")
       e.printStackTrace()
       Resource.Failure(e)
     }

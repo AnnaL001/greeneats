@@ -44,6 +44,7 @@
     <string name="login_title">Login to your account</string>
     <string name="login_subtitle">Kindly enter your details below to login into your account</string>
     <string name="sign_up_redirect_link">Don\'t have an account? Sign up here</string>
+    <string name="or">Or</string>
 
     <!-- Sign up screen -->
     <string name="signup_title">Getting started</string>
@@ -63,6 +64,8 @@
 
     <!-- Buttons -->
     <string name="btn_login">Login</string>
+    <string name="btn_google_login">Login with Google</string>
+    <string name="btn_phone_login">Login with phone</string>
     <string name="btn_signup">Sign up</string>
     <string name="btn_start">Get started</string>
 
