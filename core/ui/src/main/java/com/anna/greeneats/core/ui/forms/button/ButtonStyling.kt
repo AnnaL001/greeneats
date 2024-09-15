@@ -67,13 +67,13 @@ fun Modifier.greenEatsButton(modifier: Modifier, size: Dp): Modifier{
  * @return Modifier object with button styling
  */
 @Composable
-fun Modifier.greenEatsButtonWithIcon(modifier: Modifier, size: Dp, onClick: () -> Unit): Modifier{
+fun Modifier.greenEatsButtonWithIcon(modifier: Modifier, size: Dp, onClick: () -> Unit, color: CustomButtonColor? ): Modifier{
   return this.then(
     modifier
       .height(size)
       .fillMaxWidth()
       .background(
-        color = MaterialTheme.colorScheme.secondary,
+        color = color?.bgColor ?: MaterialTheme.colorScheme.secondary,
         shape = CircleShape
       )
       .clickable(role = Role.Button) { onClick() }

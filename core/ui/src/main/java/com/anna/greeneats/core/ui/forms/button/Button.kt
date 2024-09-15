@@ -1,15 +1,15 @@
 package com.anna.greeneats.core.ui.forms.button
 
-import androidx.annotation.DrawableRes
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import com.anna.greeneats.core.ui.R
@@ -49,23 +49,26 @@ fun GreenEatsButton(
 @Composable
 fun GreenEatsButtonWithIcon(
   buttonText: String,
-  @DrawableRes icon: Int,
+  icon: CustomIcon,
   modifier: Modifier = Modifier,
   onClick: () -> Unit = {},
   contentDesc: String = "",
+  customButtonColor: CustomButtonColor?=null
 ){
-    Row(verticalAlignment = Alignment.CenterVertically,
-      modifier = Modifier.greenEatsButtonWithIcon(modifier, dimensionResource(id = R.dimen.button_size), onClick)
+    Row(
+      modifier = Modifier.greenEatsButtonWithIcon(modifier, dimensionResource(id = R.dimen.button_size), onClick, customButtonColor)
     ) {
-      Icon(
-        painter = painterResource(id = icon),
+      Image(
+        contentScale = ContentScale.FillBounds,
+        painter = painterResource(id = icon.image),
         contentDescription = contentDesc,
-        modifier = Modifier.iconSizing(modifier, dimensionResource(id = R.dimen.button_icon_size)))
+        modifier = Modifier.iconSizing(modifier, icon.size))
       Spacer(modifier = Modifier.spacing(modifier, dimensionResource(id = R.dimen.button_icon_spacing)))
       Text(
         text = buttonText,
         style = MaterialTheme.typography.displayMedium,
-        color = MaterialTheme.colorScheme.onSurface
+        color = customButtonColor?.contentColor ?: MaterialTheme.colorScheme.onSurface,
+        modifier = Modifier.padding(top = dimensionResource(id = R.dimen.medium_medium_large_padding))
       )
       Spacer(modifier = Modifier.spacing(modifier, dimensionResource(id = R.dimen.button_icon_spacing)))
     }

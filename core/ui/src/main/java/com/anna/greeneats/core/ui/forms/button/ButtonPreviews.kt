@@ -31,7 +31,10 @@ fun AppButtonWithIcon(){
       GreenEatsButtonWithIcon(
         buttonText = "Click me!",
         modifier = Modifier.padding(dimensionResource(id = R.dimen.screen_medium_padding)),
-        icon = R.drawable.bookmark_add,
+        icon = CustomIcon(
+          image = R.drawable.bookmark_add,
+          size = dimensionResource(id = R.dimen.button_icon_size)
+        ),
         contentDesc = stringResource(id = R.string.bookmark_icon)
       )
     }
