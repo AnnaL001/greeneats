@@ -1,10 +1,8 @@
 import com.android.build.gradle.LibraryExtension
 import com.anna.greeneats.constants.AndroidConventions
 import com.anna.greeneats.constants.AndroidSdk
-import com.anna.greeneats.extensions.androidTestImplementation
 import com.anna.greeneats.extensions.implementation
 import com.anna.greeneats.extensions.libs
-import com.anna.greeneats.extensions.testImplementation
 import com.anna.greeneats.helpers.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -22,7 +20,7 @@ class AndroidDataConventionPlugin: Plugin<Project> {
 
       extensions.configure<LibraryExtension> {
         configureKotlinAndroid(this)
-        defaultConfig.targetSdk = AndroidSdk.targetSdk
+        defaultConfig.targetSdk = AndroidSdk.TARGET_SDK
       }
 
       dependencies {

@@ -21,7 +21,7 @@ class AndroidLibraryConventionPlugin: Plugin<Project> {
 
       extensions.configure<LibraryExtension> {
         configureKotlinAndroid(this)
-        defaultConfig.targetSdk = AndroidSdk.targetSdk
+        defaultConfig.targetSdk = AndroidSdk.TARGET_SDK
 
         testOptions{
           unitTests {
