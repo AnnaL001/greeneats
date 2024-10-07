@@ -24,7 +24,7 @@ class AndroidTestConventionPlugin: Plugin<Project> {
 
       extensions.configure<TestExtension> {
         configureKotlinAndroid(this)
-        defaultConfig.targetSdk = AndroidSdk.targetSdk
+        defaultConfig.targetSdk = AndroidSdk.TARGET_SDK
       }
 
       dependencies {

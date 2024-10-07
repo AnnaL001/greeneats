@@ -1,14 +1,14 @@
 package com.anna.greeneats.constants
 
 object AndroidSdk {
-  const val targetSdk = 34
-  const val compileSdk = 34
-  const val minimumSdk = 24
+  const val TARGET_SDK = 34
+  const val COMPILE_SDK = 34
+  const val MINIMUM_SDK = 24
 
-  object Application{
-    const val mobileAppId = "com.anna.greeneats.mobile"
+  object Application {
+    const val MOBILE_APP_ID = "com.anna.greeneats.mobile"
   }
 
-  const val versionCode = 1
-  const val versionName = "v1.0"
+  const val VERSION_CODE = 1
+  const val VERSION_NAME = "v1.0"
 }
