@@ -14,7 +14,6 @@ object AndroidModules {
   }
 
   object Core{
-    const val NETWORK = ":core:network"
     // Reusable components
     const val UI = ":core:ui"
     // Data store
@@ -23,12 +22,19 @@ object AndroidModules {
     const val UTIL = ":core:util"
     // Navigation
     const val NAVIGATION = ":core:navigation"
-    // Models
-    const val MODEL = ":core:model"
+  }
+
+  object Model {
+    const val MAIN = ":model:main"
+    const val RECIPES = ":model:recipes"
+  }
+
+  object Network {
+    const val RECIPES = ":network:recipes"
   }
 
   object Data{
-    const val RECIPES = ":data:home"
+    const val RECIPES = ":data:recipes"
     const val SAVED_RECIPES = ":data:saved-recipes"
     const val COOKED_RECIPES = ":data:cooked-recipes"
     const val AUTH = ":data:auth"
