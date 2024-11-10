@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navDeepLink
 import androidx.navigation.navigation
-import com.anna.greeneats.home.HomeScreenInt
+import com.anna.greeneats.home.ui.HomeScreenInt
 import com.anna.greeneats.home.recipes_detail.RecipeDetailsScreenInt
 
 /**

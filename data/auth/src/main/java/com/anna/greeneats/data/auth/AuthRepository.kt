@@ -1,7 +1,7 @@
 package com.anna.greeneats.data.auth
 
 import android.content.Context
-import com.anna.greeneats.core.model.resource.Resource
+import com.anna.greeneats.model.main.Resource
 import com.google.firebase.auth.FirebaseUser
 
 interface AuthRepository {

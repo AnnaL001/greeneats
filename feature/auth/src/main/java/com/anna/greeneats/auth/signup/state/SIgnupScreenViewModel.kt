@@ -1,6 +1,5 @@
 package com.anna.greeneats.auth.signup.state
 
-import android.widget.Toast
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -8,10 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.anna.greeneats.auth.common.ConfirmPasswordErrorState
 import com.anna.greeneats.auth.common.EmailErrorState
 import com.anna.greeneats.auth.common.PasswordErrorState
-import com.anna.greeneats.auth.login.state.LoginScreenEvents
-import com.anna.greeneats.auth.login.state.LoginScreenState
-import com.anna.greeneats.core.model.resource.AsyncResource
-import com.anna.greeneats.core.model.resource.Resource
 import com.anna.greeneats.core.util.validation.error.ConfirmPassword
 import com.anna.greeneats.core.util.validation.error.Email
 import com.anna.greeneats.core.util.validation.error.Password
@@ -19,8 +14,8 @@ import com.anna.greeneats.core.util.validation.main.ConfirmPasswordValidations
 import com.anna.greeneats.core.util.validation.main.EmailValidations
 import com.anna.greeneats.core.util.validation.main.PasswordValidations
 import com.anna.greeneats.data.auth.AuthRepository
+import com.anna.greeneats.model.main.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
