@@ -7,8 +7,8 @@ import androidx.credentials.CustomCredential
 import androidx.credentials.GetCredentialRequest
 import androidx.credentials.GetCredentialResponse
 import androidx.credentials.exceptions.GetCredentialException
-import com.anna.greeneats.core.model.resource.Resource
 import com.anna.greeneats.data.auth.BuildConfig
+import com.anna.greeneats.model.main.Resource
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
 import com.google.android.libraries.identity.googleid.GoogleIdTokenParsingException
@@ -27,7 +27,7 @@ class GoogleSignInContract{
     .build()
 
 
-  suspend fun getGoogleIdToken(context: Context): Resource<String>{
+  suspend fun getGoogleIdToken(context: Context): Resource<String> {
     try {
       val credentialManager: CredentialManager = CredentialManager.create(context)
 

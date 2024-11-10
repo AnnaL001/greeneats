@@ -2,13 +2,12 @@ package com.anna.greeneats.data.auth
 
 import android.content.Context
 import android.net.Uri
-import com.anna.greeneats.core.model.resource.Resource
 import com.anna.greeneats.data.auth.google.GoogleSignInContract
+import com.anna.greeneats.model.main.Resource
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.UserProfileChangeRequest
-import dagger.hilt.android.qualifiers.ActivityContext
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
 import javax.inject.Inject

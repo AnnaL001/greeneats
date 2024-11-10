@@ -34,4 +34,5 @@ android {
 dependencies{
   implementation(project(AndroidModules.Core.UI))
   implementation(project(AndroidModules.Core.NAVIGATION))
+  testImplementation(libs.testng)
 }

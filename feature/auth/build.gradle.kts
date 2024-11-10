@@ -11,6 +11,6 @@ android {
 dependencies {
   implementation(project(AndroidModules.Core.UI))
   implementation(project(AndroidModules.Core.UTIL))
-  implementation(project(AndroidModules.Core.MODEL))
+  implementation(project(AndroidModules.Model.MAIN))
   implementation(project(AndroidModules.Data.AUTH))
 }

@@ -29,7 +29,7 @@ android {
 }
 
 dependencies {
-  implementation(project(AndroidModules.Core.MODEL))
+  implementation(project(AndroidModules.Model.MAIN))
   implementation(platform(libs.firebase.bom))
   implementation(libs.firebase.auth)
   implementation(libs.google.play)
@@ -37,5 +37,5 @@ dependencies {
   implementation(libs.androidx.credentials.play)
   implementation(libs.identity.googleid)
   implementation(libs.androidx.junit.ktx)
-  androidTestImplementation(libs.junit.junit)
+  androidTestImplementation(libs.junit)
 }
