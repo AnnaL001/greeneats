@@ -1,4 +1,4 @@
-package com.anna.greeneats.home
+package com.anna.greeneats.home.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,8 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.anna.greeneats.core.ui.forms.button.GreenEatsButton
 import com.anna.greeneats.core.ui.layout.card.GreenEatsCard
+import com.anna.greeneats.home.state.HomeScreenViewModel
 
 @Composable
 internal fun HomeScreenInt(
@@ -19,11 +21,17 @@ internal fun HomeScreenInt(
   onNavigateToCookedRecipes: () -> Unit = {}
 ) {
   Column(
-      modifier = Modifier.fillMaxSize().padding(horizontal = 16.dp),
+      modifier = Modifier
+        .fillMaxSize()
+        .padding(horizontal = 16.dp),
       verticalArrangement = Arrangement.Center,
       horizontalAlignment = Alignment.CenterHorizontally) {
+        val homeModel = hiltViewModel<HomeScreenViewModel>()
+
         GreenEatsCard(
-            modifier = Modifier.fillMaxWidth().padding(vertical = 16.dp, horizontal = 8.dp)) {
+            modifier = Modifier
+              .fillMaxWidth()
+              .padding(vertical = 16.dp, horizontal = 8.dp)) {
               Text(text = "Recipes")
 
               GreenEatsButton(
