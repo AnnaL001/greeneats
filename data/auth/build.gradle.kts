@@ -29,7 +29,7 @@ android {
 }
 
 dependencies {
-  implementation(project(AndroidModules.Core.MODEL))
+  implementation(project(AndroidModules.Model.MAIN))
   implementation(platform(libs.firebase.bom))
   implementation(libs.firebase.auth)
   implementation(libs.google.play)
