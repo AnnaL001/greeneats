@@ -1,10 +1,13 @@
-package com.anna.greeneats.core.network
+package com.anna.greeneats.network.recipes.utils
+
+import com.anna.greeneats.network.recipes.BuildConfig
+
 
 sealed class EdamamApiRequest {
   object Endpoint {
-    private const val BASE_URL = "https://api.edamam.com"
+    const val HOST = "api.edamam.com"
 
-    const val RECIPES_SEARCH_URL = "${BASE_URL}/api/recipes/v2"
+    const val RECIPES_SEARCH_URL = "api/recipes/v2"
   }
 
   object QueryParams {
@@ -13,9 +16,14 @@ sealed class EdamamApiRequest {
       const val TYPE_VALUE = "public"
     }
 
-    object App {
-      const val ID = "app_id"
+    object AppId {
+      const val KEY = "app_id"
+      const val VALUE = BuildConfig.EDAMAM_APP_ID
+    }
+
+    object ApiKey {
       const val KEY = "app_key"
+      const val VALUE = BuildConfig.EDAMAM_API_KEY
     }
 
     object Recipe {
