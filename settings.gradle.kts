@@ -42,3 +42,8 @@ include(":model:recipes")
 
 include(":network:recipes")
 
+include(":model:app-settings")
+include(":data:app-settings")
+include(":data:cooked-recipes")
+include(":model:saved-recipes")
+include(":data:bookmarked-recipes")

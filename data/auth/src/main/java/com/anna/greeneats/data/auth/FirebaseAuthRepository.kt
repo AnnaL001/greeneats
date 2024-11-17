@@ -97,7 +97,7 @@ class FirebaseAuthRepository @Inject constructor(
   /** Login with Google Account */
   override suspend fun loginWithGoogle(context: Context): Resource<FirebaseUser> {
     return when(val response = googleSignInContract.getGoogleIdToken(context)){
-      is Resource.Success -> handleGoogleLogin(response.result)
+      is Resource.Success -> handleGoogleLogin(response.result.toString())
       is Resource.Failure -> {
         Timber.d("\uD83D\uDE14️FAILURE: Can't proceed with google login due to error getting Google Token: ${response.exception.message}")
         response.exception.printStackTrace()
