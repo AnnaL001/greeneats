@@ -32,6 +32,7 @@ dependencies {
   implementation(project(AndroidModules.Model.MAIN))
   implementation(platform(libs.firebase.bom))
   implementation(libs.firebase.auth)
+  implementation(libs.firebase.firestore)
   implementation(libs.google.play)
   implementation(libs.androidx.credentials)
   implementation(libs.androidx.credentials.play)
