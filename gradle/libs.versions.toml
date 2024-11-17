@@ -83,7 +83,7 @@ firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.r
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics-ktx" }
 firebase-performance = { group = "com.google.firebase", name = "firebase-perf-ktx" }
 firebase-auth = {group="com.google.firebase", name="firebase-auth-ktx"}
-firebase-firestore = { group="com.google.firebase", name="firebase-firestore"}
+firebase-firestore = { group="com.google.firebase", name="firebase-firestore-ktx"}
 google-play = {group="com.google.android.gms", name="play-services-auth", version="googlePlay"}
 
 # Others
