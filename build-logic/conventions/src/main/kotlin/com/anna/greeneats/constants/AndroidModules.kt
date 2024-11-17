@@ -27,6 +27,8 @@ object AndroidModules {
   object Model {
     const val MAIN = ":model:main"
     const val RECIPES = ":model:recipes"
+    const val APP_SETTINGS = ":model:app-settings"
+    const val SAVED_RECIPES = ":model:saved-recipes"
   }
 
   object Network {
@@ -35,7 +37,7 @@ object AndroidModules {
 
   object Data{
     const val RECIPES = ":data:recipes"
-    const val SAVED_RECIPES = ":data:saved-recipes"
+    const val BOOKMARKED_RECIPES = ":data:bookmarked-recipes"
     const val COOKED_RECIPES = ":data:cooked-recipes"
     const val AUTH = ":data:auth"
     const val APP_SETTINGS = ":data:app-settings"
